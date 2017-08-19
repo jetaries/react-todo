@@ -17,7 +17,7 @@ var AddToDo = React.createClass({
 			<div>
 				<form ref="form" onSubmit={this.handleSubmit}>
 					<input type="text" ref="todoText" placeholder="What do you need to do?" />
-					<button className="button">Add</button>
+					<button className="button expanded">Add Todo</button>
 				</form>
 			</div>
 		);
