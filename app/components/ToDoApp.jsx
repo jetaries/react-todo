@@ -4,7 +4,7 @@ var uuid = require('node-uuid');
 
 import ToDoList from 'ToDoList';
 import AddToDo from 'AddToDo';
-var ToDoSearch = require('ToDoSearch');
+import ToDoSearch from 'ToDoSearch';
 var TodoApi = require('TodoApi');
 
 var ToDoApp = React.createClass({
