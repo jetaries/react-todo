@@ -54,24 +54,31 @@ describe('reducers', () => {
 			expect(res[0]).toEqual(todos[0]);
 		});
 
-		it('should toggle todo', () => {
-			var todoData = {
+		it('should update todo', () => {
+			var todos = [{
 				id: 199,
 				text: "Play with Buggy",
 				completed: true,
 				createdAt: 2324,
 				completedAt: 2392848
-			};
+			}];
+			var updates = {
+				completed: false,
+				completedAt: null
+			}
 
 			var action = {
-				type: 'TOGGLE_TODO',
-				id: 199
+				type: 'UPDATE_TODO',
+				id: todos[0].id,
+				updates
 			};
 
-			var res = reducers.todosReducer(df([todoData]), df(action));
+			var res = reducers.todosReducer(df(todos), df(action));
 
-			expect(res[0].completed).toEqual(false);
-			expect(res[0].completedAt).toEqual(undefined);
+			expect(res[0].completed).toEqual(updates.completed);
+			expect(res[0].completedAt).toEqual(updates.completedAt);
+			// make sure the todo value is not lost.
+			expect(res[0].text).toEqual(todos[0].text);
 		});
 	});
 });
