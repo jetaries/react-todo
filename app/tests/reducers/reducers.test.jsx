@@ -80,6 +80,22 @@ describe('reducers', () => {
 			// make sure the todo value is not lost.
 			expect(res[0].text).toEqual(todos[0].text);
 		});
+
+		it('should wipe todos when logged out', () => {
+			var todos = [{
+				id: 199,
+				text: "Play with Buggy",
+				completed: true,
+				createdAt: 2324,
+				completedAt: 2392848
+			}];
+			var action = {
+				type: 'LOGOUT'
+			}
+
+			var res = reducers.todosReducer(df(todos), df(action));
+			expect(res.length).toEqual(0);
+		})
 	});
 
 	describe('auth reducer', () => {
