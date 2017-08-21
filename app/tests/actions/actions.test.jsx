@@ -108,4 +108,18 @@ describe('actions', () => {
 			}).catch(done());
 		});
 	});
+
+	it('should generated login action object', () => {
+		var action = {type: 'LOGIN', uid: 'sdads'};
+		var res = actions.login(action.uid);
+
+		expect(res).toEqual(action);
+	});
+
+	it('should generated logout action object', () => {
+		var action = {type: 'LOGOUT'};
+		var res = actions.logout();
+
+		expect(res).toEqual(action);
+	});
 });
